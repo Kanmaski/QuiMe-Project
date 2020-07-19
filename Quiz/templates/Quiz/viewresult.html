@@ -1,0 +1,33 @@
+{% extends 'Quiz/base.html' %}
+
+{% load quiz_extras %}
+
+{% block content %}
+
+<h1 class="congrats">Here are the Results</h1>
+
+{% for result in results %}
+<div class="results">
+    <h4 class="resultscat">{{ forloop.counter }}.</h4>
+    <h4 class="resultscat">{{ result.taker }}</h4>
+    <h4 class="resultscat">{{ result.score|percentage }}</h4>
+    <h4 class="resultscat">Friendship Level:
+        {% if result.score > 0.9 %}
+        &#x1F970
+        {% elif result.score > 0.7 %}
+        &#X1F600
+        {% elif result.score > 0.5 %}
+        &#x1F610
+        {% elif result.score > 0.3 %}
+        &#x1F61F
+        {% elif result.score > 0.1 %}
+        &#x1F622
+        {% else %}
+        &#x1F62D
+        {% endif %}
+    </h4>
+</div>
+{% endfor %}
+
+
+{% endblock %}

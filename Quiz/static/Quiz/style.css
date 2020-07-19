@@ -1,0 +1,124 @@
+.signuperrors{
+    font-weight: 100;
+    font-size: 10px;
+    color: red;
+}
+ .signupform{
+    margin: 70px auto;
+    width: 30%;
+}
+
+.key, .congrats{
+    margin: 40px auto;
+    width: 60%;
+    text-align:center;
+}
+
+.key{
+    background-color: green;
+    color: black;
+    font-weight: 500;
+    font-size: 64px;
+}
+
+#previewkey{
+    margin: 100px auto;
+    width: 50%;
+    text-align: center;
+}
+
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /*grid-column-gap: 10px;*/
+    /*border:2px green dotted;*/
+}
+
+.navbar-brand{
+    justify-self: start;
+    grid-column: 1/ span 1;
+    /*border: 2px blue dotted;*/
+}
+
+.nav-item{
+    /*border: 2px red dotted;*/
+    margin-left: 20px;
+}
+#navbarSupportedContent{
+    justify-self: end;
+    grid-column: 2/span 1;
+    /*border: 2px yellow dotted;*/
+}
+
+.options{
+    display: inline-block;
+    margin-left: 40px;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/;
+}
+
+.optionsmain{
+    margin-right: 200px;
+}
+
+.mark{
+    background-color:white;
+    display: inline-block;
+    font-size: 48px;
+}
+
+.score{
+    font-size: 64px;
+    text-align: center;
+}
+
+.QuizTaker{
+    text-align: center;
+    margin:40px auto;
+    width: 50%;
+}
+
+.resultscat{
+    display: inline-block;
+    margin:10px;
+
+}
+
+.results{
+    margin:10px auto;
+    width: 50%;
+    text-align: center;
+}
+
+.homesubmit{
+    background-color: blue;
+    height: 100px;
+    margin: 70px 180px;
+    text-align: center;
+    
+}
+
+.home{
+    width: 50%;
+    text-align: center;
+    margin: 40px auto;
+
+}
+
+.emoji{
+    font-size: 200px;
+    margin-bottom: -40px;
+}
+
+.homegrid{
+    text-align: center;
+}
+
+.hometask{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.emojilink:hover{
+    background-color: blue;
+    text-decoration: None;
+}

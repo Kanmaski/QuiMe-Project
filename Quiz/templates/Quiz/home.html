@@ -1,0 +1,35 @@
+{% extends 'Quiz/base.html' %}
+
+{% block content %}
+
+<h3 class="home">Welcome to QuizMe!</h3>
+<h5 class="home">What do you want to do today?</h5>
+
+<div class="hometask">
+{% if user.is_authenticated %}
+<div class="homegrid">
+    <p class="emoji"><a href="{% url 'createquiz' %}" class="emojilink">&#x1f468;&#x1f3ff;&#x200d;&#x1f3eb;</a></p>
+    <p>Create Quiz</p>
+</div>
+{% else %}
+<div class="homegrid">
+    <p class="emoji"><a href="{% url 'signup' %}" class="emojilink">&#x1f468;&#x1f3ff;&#x200d;&#x1f3eb;</a></p>
+    <p>Create Quiz</p>
+</div>
+{% endif %}
+
+<div class="homegrid">
+    <p class="emoji"><a href="{% url 'takequizpreview' %}" class="emojilink">&#x1F4DD</a></p>
+    <p>Take Quiz</p>
+</div>
+
+<div class="homegrid">
+    <p class="emoji"><a href="{% url 'viewresultpreview' %}" class="emojilink">&#x1F4C9</a></p>
+    <p>View Results</p>
+</div>
+</div>
+
+
+
+{% endblock %}
+

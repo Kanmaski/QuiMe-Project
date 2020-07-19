@@ -1,0 +1,41 @@
+
+{% extends 'Quiz/base.html' %}
+
+{% block content %}
+<!--
+<form method="POST">
+
+{{ SignUpForm.as_p }}
+<button type="submit">Submit</button>
+</form>
+{{ error }}
+-->
+
+{{Baddata}}
+<form class="signupform" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ SignUpForm.UserName.id_for_label }}">{{ SignUpForm.UserName.label }}</label>
+      <input type="text" name="UserName" class="form-control" id="{{ SignUpForm.UserName.id_for_label }}" aria-describedby="UserHelp">
+      <small id="UserHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <p class="signuperrors">{{ Userexist }}</p>
+    </div>
+    <div class="form-group">
+      <label for="{{ SignUpForm.password1.id_for_label }}">{{ SignUpForm.password1.label }}</label>
+      <input type="password" name="password1" class="form-control" id="{{ SignUpForm.password1.id_for_label }}">
+      <p></p>
+    </div>
+    <div class="form-group">
+        <label for="{{ SignUpForm.password2.id_for_label }}">{{ SignUpForm.password2.label }}</label>
+        <input type="password" name="password2" class="form-control" id="{{ SignUpForm.password2.id_for_label }}">
+        <p class="signuperrors">{{ Passwordnomatch }}</p>
+    </div>
+    <div class="form-group">
+      <label for="{{ SignUpForm.Useremail.id_for_label }}">{{ SignUpForm.Useremail.label }}</label>
+      <input type="email" name="Useremail" class="form-control" id="{{ SignUpForm.Useremail.id_for_label }}" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <button type="submit" class="btn btn-primary signupsubmit">Submit</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'Quiz/base.html' %}
+
+{% block content %}
+
+{{ error }}
+<h4 class="congrats"> Create Your Quiz</h4>
+<h6 class="congrats">Enter a Quiz title before starting</h6>
+<form method="post" class="signupform">
+{% csrf_token %}
+<div class="form-group">
+<label for="title">Quiz title:</label>
+<input type="text" name="title">
+</div>
+{{ formset.management_form }}
+{% for form in formset %}
+
+<div class="form-group">
+    <b>{{ forloop.counter }}:</b>
+    <hr>
+    <label for="{{ form.question.id_for_label }}">{{ form.question.label }}</label>
+    {{ form.question }}
+    <p></p>
+  </div>
+  <div class="form-group">
+      <label for="{{ form.option.id_for_label }}">{{ form.option.label }}:</label>
+      {{ form.option }}
+      <small id="UserHelp" class="form-text text-muted">Should be comma separated like: dog, cat, mice</small>
+  </div>
+  <div class="form-group">
+    <label for="{{ form.answer.id_for_label }}">{{ form.answer.label }}:</label>
+    {{ form.answer }}
+    <small id="UserHelp" class="form-text text-muted">Should match one of the options provided</small>
+</div>
+{% endfor %}
+<button type="submit" class="btn btn-primary signupsubmit">Submit</button>
+</form>
+
+{% endblock %}

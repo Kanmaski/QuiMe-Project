@@ -1,0 +1,54 @@
+{% extends 'Quiz/base.html' %}
+
+{% load quiz_extras %}
+
+{% block content %}
+
+<h1 class="congrats">Friendship Result</h1>
+{{error}}
+<h3 class="score">Your Score is: {{ score|percentage }}</h3>
+<h4 class="score">Friendship Level:
+    {% if score > 0.9 %}
+    &#x1F970
+    {% elif score > 0.7 %}
+    &#X1F600
+    {% elif score > 0.5 %}
+    &#x1F610
+    {% elif score > 0.3 %}
+    &#x1F61F
+    {% elif score > 0.1 %}
+    &#x1F622
+    {% else %}
+    &#x1F62D
+    {% endif %}
+</h4>
+<form>
+    {% csrf_token %}
+    {% for quiz in quizzes %}
+    <div class="takequizform">
+        <b>{{ forloop.counter }}:</b>
+        <hr>
+        <h3 class="quizquestion">{{ quiz.question}}</h3>
+        <div class="options">
+            {% for option in quiz.options %}
+            <label for="{{ option }}" class="optionsmain">
+            {% if option == Useranswer|mydictcustom:quiz.question %}
+            <input type="radio" id="{{ quiz.question }}" name="{{ quiz.question }}" value="{{ option }}" checked>
+            {% else %}
+            <input type="radio" id="{{ quiz.question }}" name="{{ quiz.question }}" value="{{ option }}">
+            {% endif %}
+            {{ option }} 
+        </label>
+        {% endfor %}
+        {% if marks|mydictcustom:forloop.counter0 == 'Pass' %}
+        <p class="mark"> &#x2705 </p>
+        {% else %}
+        <p class="mark"> &#x274C </p>
+        {% endif %}  
+        </div>
+        
+    </div>
+    {% endfor %}
+</form>
+
+{% endblock %}

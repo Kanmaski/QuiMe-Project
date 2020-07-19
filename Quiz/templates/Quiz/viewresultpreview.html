@@ -1,0 +1,15 @@
+{% extends 'Quiz/base.html' %}
+
+{% block content %}
+
+<h1 class="congrats">Enter the secret key to unlock the Results</h1>
+
+<form method="POST" id="previewkey">
+    {% csrf_token %}
+    <label for="key" class="previewkey">Enter Secret Key:</label>
+    <input type="text" class="previewkey" name="key">
+    <button type="submit" class="btn btn-primary signupsubmit">Go To Results!</button>
+</form>
+
+
+{% endblock %}
