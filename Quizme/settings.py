@@ -25,7 +25,7 @@ SECRET_KEY = ')stu&f24&(k20lt*4nl2lz!q%7r7rhqyk^@*+2)5kvb=^c!%@l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['quizmefriend.com']
+ALLOWED_HOSTS = ['www.quizmefriend.com']
 
 
 # Application definition
